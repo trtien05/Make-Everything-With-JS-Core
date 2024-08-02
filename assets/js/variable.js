@@ -3,7 +3,8 @@ export const params = {
   page: 1,
   limit: 8,
   sort: '',
-  order: ''
+  order: '',
+  category: '',
 }
 
 export const product = document.querySelector('#product')

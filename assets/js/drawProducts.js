@@ -3,7 +3,11 @@ import { product } from "./variable.js"
 import { params } from "./variable.js"
 
 export const drawProducts = () => {
-  const api = `http://localhost:3000/products?q=${params.q}&_page=${params.page}&_limit=${params.limit}&_sort=${params.sort}&_order=${params.order}`
+  let category = '';
+  if (params.category !== '') {
+    category = `&category=${params.category}`
+  }
+  const api = `http://localhost:3000/products?q=${params.q}&_page=${params.page}&_limit=${params.limit}&_sort=${params.sort}&_order=${params.order}${category}`
   fetchApi(api)
     .then(data => {
       const arrayHTML = data.map((item) => {
@@ -11,6 +15,7 @@ export const drawProducts = () => {
         <div class="product__item">
           <div class="product__image">
             <img src=${item.thumbnail} alt="anh">
+            <div class="product__discount">${item.discountPercentage}</div>
           </div>
           <div class="product__content">
             <div class="product__title">
