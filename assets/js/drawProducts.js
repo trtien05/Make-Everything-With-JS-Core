@@ -1,8 +1,9 @@
 import { fetchApi } from "./fetchApi.js"
 import { product } from "./variable.js"
 import { params } from "./variable.js"
+
 export const drawProducts = () => {
-  const api = `http://localhost:3000/products?q=${params.q}`
+  const api = `http://localhost:3000/products?q=${params.q}&_page=${params.page}&_limit=${params.limit}`
   fetchApi(api)
     .then(data => {
       const arrayHTML = data.map((item) => {

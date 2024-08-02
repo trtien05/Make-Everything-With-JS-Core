@@ -1,22 +1,42 @@
 import { drawCategory } from "./drawCategory.js"
 import { drawProducts } from "./drawProducts.js"
-import { params, searchButton, searchInput } from "./variable.js"
-
+import { paginationNext, paginationNumber, paginationPrev, params, searchButton, searchInput } from "./variable.js"
 
 drawCategory()
 
 drawProducts()
 
-// searchInput.addEventListener('change', function (e) {
-//   params.q = e.target.value;
-//   drawProducts()
-
-//   console.log(params.q)
-// })
-
-searchButton.addEventListener('click', function (e) {
-
+//Search
+const search = () => {
   params.q = searchInput.value;
   drawProducts()
+}
+
+searchInput.addEventListener('keyup', function (e) {
+  if (e.key === "Enter") {
+    search()
+  }
+
+})
+
+searchButton.addEventListener('click', function () {
+  search();
+})
+
+//End Search
+
+//Pagination
+
+paginationNext.addEventListener('click', function () {
+  params.page = params.page + 1;
+  paginationNumber.innerHTML = params.page
+  drawProducts()
+})
+paginationPrev.addEventListener('click', function () {
+  if (params.page > 1) {
+    params.page = params.page - 1;
+    paginationNumber.innerHTML = params.page
+    drawProducts()
+  }
 
 })

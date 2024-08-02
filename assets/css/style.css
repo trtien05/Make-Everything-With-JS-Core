@@ -52,3 +52,11 @@
 .search{
   margin: 20px 0;
 }
+.pagination{
+  display: flex;
+}
+.paginationNumber{
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 18px;
+}
