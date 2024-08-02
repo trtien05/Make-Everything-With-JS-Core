@@ -1,6 +1,6 @@
 import { drawCategory } from "./drawCategory.js"
 import { drawProducts } from "./drawProducts.js"
-import { paginationNext, paginationNumber, paginationPrev, params, searchButton, searchInput } from "./variable.js"
+import { paginationNext, paginationNumber, paginationPrev, params, searchButton, searchInput, selection } from "./variable.js"
 
 drawCategory()
 
@@ -38,5 +38,35 @@ paginationPrev.addEventListener('click', function () {
     paginationNumber.innerHTML = params.page
     drawProducts()
   }
+
+})
+
+//End Pagination
+
+//Select
+
+selection.addEventListener('change', function (e) {
+  const option = e.target.value;
+  switch (option) {
+    case "default":
+      params.sort = '';
+      params.order = '';
+      break;
+    case "ascending":
+      params.sort = 'price';
+      params.order = 'asc';
+      break;
+    case "descending":
+      params.sort = 'price';
+      params.order = 'desc';
+      break;
+    case "discount":
+      params.sort = 'discountPercentage';
+      params.order = 'desc';
+      break;
+    default:
+      break;
+  }
+  drawProducts()
 
 })

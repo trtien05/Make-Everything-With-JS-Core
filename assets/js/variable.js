@@ -1,7 +1,9 @@
 export const params = {
   q: "",
   page: 1,
-  limit: 8
+  limit: 8,
+  sort: '',
+  order: ''
 }
 
 export const product = document.querySelector('#product')
@@ -12,3 +14,4 @@ export const searchButton = document.querySelector('#search button')
 export const paginationPrev = document.querySelector('#paginationPrev')
 export const paginationNext = document.querySelector('#paginationNext')
 export const paginationNumber = document.querySelector('#paginationNumber')
+export const selection = document.querySelector('#select')
